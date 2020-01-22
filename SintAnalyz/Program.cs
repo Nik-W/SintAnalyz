@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SintAnalyz
 {
@@ -11,14 +7,11 @@ namespace SintAnalyz
         static void Main(string[] args)
         {
             string[] Term = { "WHILE", "(", ")", "IND", "CONST", "DO", ":=", ";",
-                "<", ">", "<=", ">=", "=", "<>", 
-                "+", "-", "*", "/", "div", "mod" };
+                            "<", ">", "<=", ">=", "=", "<>",
+                            "+", "-", "*", "/", "div", "mod" };
             bool Error = false, Loop;
 
-            void ErrorMessage (string S1, string S2)
-            {
-                Console.WriteLine("Синтаксическая ошибка между " + S1 + " и " + S2);
-            }
+            void ErrorMessage(string S1, string S2) => Console.WriteLine("Синтаксическая ошибка между " + S1 + " и " + S2);
 
             while (!Error)
             {
