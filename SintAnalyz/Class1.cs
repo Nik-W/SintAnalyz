@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SintAnalyz
 {
@@ -26,14 +22,15 @@ namespace SintAnalyz
                         else Loop = true;
 
                 if (Loop) continue;
+
                 //проверка на число
-                if (int.TryParse(Text[T], out _))
-                    Text[T] = "CONST";
+                if (int.TryParse(Text[T], out _)) Text[T] = "CONST";
+
                 else
                 {
                     //проверка идентификатора и его правильности
                     char[] Word = Text[T].ToCharArray();
-                    if ((int)Word[0] >= 65 && (int)Word[0] <= 90 || (int)Word[0] >= 97 && (int)Word[0] <= 122)
+                    if (Word[0] >= 'A' && Word[0] <= 'Z' || Word[0] >= 'a' && Word[0] <= 'z')
                     {
                         if (Word.Length == 1)
                         {
@@ -41,9 +38,9 @@ namespace SintAnalyz
                             continue;
                         }
                         for (int i = 1; i < Word.Length; i++)
-                            if ((int)Word[i] >= 65 && (int)Word[i] <= 90
-                                || (int)Word[i] >= 97 && (int)Word[i] <= 122
-                                || (int)Word[i] >= 48 && (int)Word[i] <= 57)
+                            if (Word[i] >= 'A' && Word[i] <= 'Z'
+                                || Word[i] >= 'a' && Word[i] <= 'z'
+                                || Word[i] >= '0' && Word[i] <= '9')
                                 Text[T] = "IND";
                     }
                     else
@@ -115,7 +112,6 @@ namespace SintAnalyz
                     else ErrorMessage(Text[T - 1], Text[T]);
                 }
                 else ErrorMessage(Text[T], Text[T + 1]);
-
             }
         }
     }

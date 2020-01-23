@@ -13,18 +13,16 @@ namespace SintAnalyz
 
             while (!Error)
             {
-
                 Console.WriteLine("Введите код программы! \n");
                 Sint sint = new Sint();
                 sint.Code = Console.ReadLine();
                 sint.Analyz(sint.Code, Term, Error, Loop);
-
             }
             Console.ReadLine();
         }
     }
 }
-
+//примеры успешного анализа
 //WHILE ( N ) DO AB := -18 + A ;
 //WHILE ( A = B ) DO E := F div G ;
 //WHILE ( C <> D ) DO E := F div G ;
